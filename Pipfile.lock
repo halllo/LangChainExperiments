@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "6c30de053c525cb11d68724e4a25a2a732f26264a43c2c519e1c0392ecc0e25e"
+            "sha256": "f29dd117700d57f91f1e1c6b2daf708b26fa4605bf23193e17c86af47b0e9b78"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -462,6 +462,15 @@
             "markers": "python_version < '4.0' and python_full_version >= '3.8.1'",
             "version": "==0.2.0"
         },
+        "langchain-community": {
+            "hashes": [
+                "sha256:15c7e8f2547d9e9f03eef0704ef1c68a0074c462e9bd635662d5ea4b0eace87b",
+                "sha256:4d069d280fd2dc1219df13d580338729dbaebf581160bc42c73d5ed208258d57"
+            ],
+            "index": "pypi",
+            "markers": "python_version < '4.0' and python_full_version >= '3.8.1'",
+            "version": "==0.2.0"
+        },
         "langchain-core": {
             "hashes": [
                 "sha256:22c84e88aa7e98a0b98fadb3238343152641afce6ff27e8f2d9f5ff421e35a35",
@@ -489,11 +498,11 @@
         },
         "langsmith": {
             "hashes": [
-                "sha256:445e3bc1d3baa1e5340cd979907a19483b9763a2ed37b863a01113d406f69345",
-                "sha256:e748a89f4dd6aa441349143e49e546c03b5dfb43376a25bfef6a5ca792fe1437"
+                "sha256:3c3520ea473de0a984237b3e9d638fdf23ef3acc5aec89a42e693225e72d6120",
+                "sha256:6a145b5454437f9e0f81525f23c4dcdbb8c07b1c91553b8f697456c418d6a599"
             ],
             "markers": "python_version < '4.0' and python_full_version >= '3.8.1'",
-            "version": "==0.1.59"
+            "version": "==0.1.60"
         },
         "marshmallow": {
             "hashes": [
@@ -964,11 +973,11 @@
         },
         "requests": {
             "hashes": [
-                "sha256:58cd2187c01e70e6e26505bca751777aa9f2ee0b7f4300988b709f44e013003f",
-                "sha256:942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
+                "sha256:f2c3881dddb70d056c5bd7600a4fae312b2a300e39be6a118d30b90bd27262b5",
+                "sha256:fa5490319474c82ef1d2c9bc459d3652e3ae4ef4c4ebdd18a21145a47ca4b6b8"
             ],
-            "markers": "python_version >= '3.7'",
-            "version": "==2.31.0"
+            "markers": "python_version >= '3.8'",
+            "version": "==2.32.0"
         },
         "sniffio": {
             "hashes": [
