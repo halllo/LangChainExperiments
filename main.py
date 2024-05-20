@@ -2,9 +2,8 @@ from langchain_openai import OpenAI;
 from langchain.prompts import PromptTemplate;
 from langchain_core.output_parsers import StrOutputParser;
 from langchain_core.runnables import RunnablePassthrough, RunnableParallel, RunnablePick ;
-from langchain.chains.sequential import SequentialChain;
-from operator import itemgetter
 import argparse;
+import json;
 from dotenv import load_dotenv;
 
 
@@ -24,7 +23,14 @@ code_chain = code_prompt | llm | {"code": StrOutputParser()};
 test_prompt = PromptTemplate.from_template("Write a test for the following {language} code:\n{code}");
 test_chain = test_prompt | llm | {"test": StrOutputParser()};
 
-chain = code_chain | test_chain;
+chain = RunnableParallel({
+    "language": RunnablePick("language"),
+    "code": code_chain | RunnablePick("code"),
+}) | RunnableParallel({
+    "language": RunnablePick("language"),
+    "code": RunnablePick("code"),
+    "test": test_chain | RunnablePick("test"),
+});
 
 print(chain.input_schema.schema())
 print(chain.output_schema.schema())
@@ -34,4 +40,4 @@ result = chain.invoke({
     "task": args.task,
 });
 
-print(result);
+print(json.dumps(result, indent=4));
