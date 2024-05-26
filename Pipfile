@@ -9,6 +9,8 @@ openai = "*"
 python-dotenv = "*"
 langchain-openai = "*"
 langchain-community = "*"
+tiktoken = "*"
+chromadb = "*"
 
 [dev-packages]
 ipykernel = "*"
