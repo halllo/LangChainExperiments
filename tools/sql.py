@@ -23,7 +23,7 @@ class RunQueryArgsSchema(BaseModel):
     query: str;
 
 run_query_tool = Tool.from_function(
-    name="run_sqllist_query",
+    name="run_sqlite_query",
     description="Run a sqlite query.",
     func=run_sqlite_query,
     args_schema=RunQueryArgsSchema,

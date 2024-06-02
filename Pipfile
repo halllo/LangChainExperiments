@@ -13,6 +13,7 @@ tiktoken = "*"
 chromadb = "*"
 matplotlib = "*"
 pyboxen = "*"
+langsmith = "*"
 
 [dev-packages]
 ipykernel = "*"
