@@ -11,6 +11,8 @@ langchain-openai = "*"
 langchain-community = "*"
 tiktoken = "*"
 chromadb = "*"
+matplotlib = "*"
+pyboxen = "*"
 
 [dev-packages]
 ipykernel = "*"

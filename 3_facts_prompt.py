@@ -3,10 +3,14 @@ from langchain_openai.embeddings import OpenAIEmbeddings;
 from langchain.prompts import HumanMessagePromptTemplate, ChatPromptTemplate, MessagesPlaceholder;
 from langchain_community.vectorstores.chroma import Chroma;
 from langchain.chains.retrieval import create_retrieval_chain;
-from langchain.chains.combine_documents import create_stuff_documents_chain
+from langchain.chains.combine_documents import create_stuff_documents_chain;
+from langchain.globals import set_debug;
 from dotenv import load_dotenv;
+from redundant_filter_retriever import RedundantFilterRetriever;
 
 load_dotenv();
+
+set_debug(True);
 
 
 chat = ChatOpenAI();
@@ -17,7 +21,11 @@ db = Chroma(
     embedding_function=embeddings,
 );
 
-retriever = db.as_retriever()
+#retriever = db.as_retriever();
+retriever = RedundantFilterRetriever(
+    embeddings=embeddings,
+    chroma=db,
+);
 
 system_prompt = (
     "Use the given context to answer the question. "
@@ -32,8 +40,15 @@ prompt = ChatPromptTemplate.from_messages(
     ]
 );
 
-qa_chain = create_stuff_documents_chain(llm=chat, prompt=prompt);
-chain = create_retrieval_chain(retriever=retriever, combine_docs_chain=qa_chain);
+qa_chain = create_stuff_documents_chain(
+    llm=chat, 
+    prompt=prompt,
+);
+
+chain = create_retrieval_chain(
+    retriever=retriever, 
+    combine_docs_chain=qa_chain
+);
 
 result = chain.invoke({
     "input": "What is an iteresting fact about the English language?"
